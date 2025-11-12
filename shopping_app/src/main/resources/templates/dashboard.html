@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Dashboard - Shopping App</title>
+    <style>
+      body { font-family: Arial, sans-serif; padding: 24px; }
+      header { display:flex; justify-content: flex-end; gap: 12px; margin-bottom:20px; }
+      .card { border:1px solid #ddd; padding:12px; border-radius:6px; display:inline-block; margin-right:12px; }
+    </style>
+</head>
+<body>
+  <header>
+    <a href="/admin">Admin</a> | <a href="/logout">Logout</a>
+  </header>
+
+  <h1>Dashboard</h1>
+
+  <div class="card">Total Products: <strong th:text="${totalProducts}">0</strong></div>
+  <div class="card">Total Items in Stock: <strong th:text="${totalItems}">0</strong></div>
+  <div class="card">Total Value: ₹<strong th:text="${totalValue}">0</strong></div>
+
+  <h3>Categories</h3>
+  <ul>
+    <li th:each="c : ${categories}" th:text="${c.name}">Category</li>
+  </ul>
+</body>
+</html>
